@@ -1,0 +1,80 @@
+import { Project } from '@/types';
+
+/**
+ * Lista de projetos desenvolvidos
+ */
+export const projects: Project[] = [
+  {
+    id: 'consultorio-dr-pedro',
+    title: 'Consultório Dr. Pedro Lucas',
+    description: 'Site institucional moderno para consultório odontológico com design profissional e responsivo.',
+    longDescription: 'Site institucional completo desenvolvido para o consultório odontológico do Dr. Pedro Lucas. O projeto apresenta informações sobre o profissional, serviços oferecidos (Implantodontia, Estética Dental, Clareamento, Ortodontia), equipe de colaboradores e localização. Desenvolvido com foco em performance, SEO e experiência do usuário.',
+    technologies: ['Next.js 14', 'TypeScript', 'TailwindCSS', 'Server Components', 'SEO'],
+    category: 'web',
+    image: '/images/projects/dr_pedro.png',
+    liveUrl: 'https://www.consultoriodrpedrolucas.com.br/',
+    learnings: [
+      'Desenvolvimento de sites institucionais profissionais',
+      'Otimização de performance com Next.js App Router',
+      'Técnicas avançadas de SEO para serviços locais',
+      'Design responsivo e acessível',
+      'Integração com redes sociais e Google Maps',
+    ],
+    featured: true,
+  },
+  {
+    id: 'tesourapp',
+    title: 'TesourApp - Gestão Eclesiástica',
+    description: 'Sistema completo de gestão financeira para tesourarias de igrejas com controle de dízimos e ofertas.',
+    longDescription: 'SaaS especializado em gestão financeira eclesiástica desenvolvido para facilitar o trabalho de tesourarias. O sistema permite controle completo de dízimos, ofertas, despesas e geração automática de relatórios para prestação de contas. Inclui dashboard em tempo real, múltiplos usuários, backup automático na nuvem e planos flexíveis para diferentes tamanhos de congregações.',
+    technologies: ['Next.js', 'TypeScript', 'PostgreSQL', 'SaaS', 'Multi-tenant', 'Dashboard'],
+    category: 'saas',
+    image: '/images/projects/igreja.png',
+    liveUrl: 'http://69.62.87.91:3004/',
+    learnings: [
+      'Arquitetura SaaS multi-tenant para igrejas',
+      'Desenvolvimento de sistemas financeiros especializados',
+      'Geração automática de relatórios e balancetes',
+      'Sistema de planos e assinaturas',
+      'Interface intuitiva para usuários não técnicos',
+      'Gestão de múltiplos usuários com diferentes permissões',
+    ],
+    featured: true,
+  },
+  {
+    id: 'sdesign',
+    title: 'SDesign Arquitetura',
+    description: 'Site institucional de arquitetura de luxo com portfólio de projetos e serviços.',
+    longDescription: 'Site institucional desenvolvido para a SDesign, empresa de arquitetura de luxo especializada em projetos residenciais, comerciais e de hospitalidade. O site apresenta o portfólio de projetos concluídos, serviços oferecidos (Arquitetura Residencial, Comercial, Design de Interiores e Consultoria), informações sobre a empresa e formulário de contato. Design elegante e sofisticado que reflete a qualidade dos projetos da empresa.',
+    technologies: ['Next.js', 'TypeScript', 'TailwindCSS', 'Framer Motion', 'Portfolio'],
+    category: 'web',
+    image: '/images/projects/arquitetura.png',
+    liveUrl: 'http://69.62.87.91:3003/',
+    learnings: [
+      'Desenvolvimento de sites para empresas de arquitetura',
+      'Galeria de projetos com design impactante',
+      'Formulários de contato integrados',
+      'Animações suaves para apresentação de projetos',
+      'Design que reflete a identidade visual da empresa',
+    ],
+    featured: true,
+  },
+  {
+    id: 'finance-control',
+    title: 'Finance Control',
+    description: 'Sistema completo de gestão financeira pessoal com dashboard interativo e gráficos.',
+    longDescription: 'Aplicação completa para controle financeiro pessoal com dashboard interativo, gráficos de receitas e despesas, categorização de transações e relatórios mensais. O sistema permite controle de múltiplos cartões, investimentos (CDB, Ações), visualização de saldo total e análise detalhada de gastos por categoria. Interface moderna e intuitiva com tema escuro para melhor experiência do usuário.',
+    technologies: ['Next.js', 'TypeScript', 'React', 'PostgreSQL', 'TailwindCSS', 'Dashboard', 'Charts'],
+    category: 'saas',
+    image: '/images/projects/Finance.png',
+    liveUrl: 'http://69.62.87.91:3001/',
+    learnings: [
+      'Arquitetura de aplicações financeiras',
+      'Desenvolvimento de dashboards interativos',
+      'Gráficos e visualizações de dados',
+      'Categorização e análise de transações',
+      'Gestão de múltiplos cartões e investimentos',
+    ],
+    featured: true,
+  },
+];
