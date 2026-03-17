@@ -1,0 +1,55 @@
+import { forwardRef, TextareaHTMLAttributes } from 'react';
+import { cn } from '@/lib/utils';
+
+interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+  label?: string;
+  error?: string;
+  helperText?: string;
+}
+
+const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
+  ({ className, label, error, helperText, id, ...props }, ref) => {
+    const textareaId = id || `textarea-${label?.toLowerCase().replace(/\s+/g, '-')}`;
+
+    return (
+      <div className="w-full">
+        {label && (
+          <label
+            htmlFor={textareaId}
+            className="block text-sm font-medium text-gray-300 mb-2"
+          >
+            {label}
+            {props.required && <span className="text-red-400 ml-1">*</span>}
+          </label>
+        )}
+        <textarea
+          id={textareaId}
+          ref={ref}
+          className={cn(
+            'w-full px-4 py-3 bg-gray-800 border rounded-lg',
+            'text-white placeholder-gray-500',
+            'focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent',
+            'transition-all duration-200 resize-y min-h-[120px]',
+            error
+              ? 'border-red-500 focus:ring-red-500'
+              : 'border-gray-700 hover:border-gray-600',
+            className
+          )}
+          {...props}
+        />
+        {error && (
+          <p className="mt-1 text-sm text-red-400" role="alert">
+            {error}
+          </p>
+        )}
+        {helperText && !error && (
+          <p className="mt-1 text-sm text-gray-400">{helperText}</p>
+        )}
+      </div>
+    );
+  }
+);
+
+Textarea.displayName = 'Textarea';
+
+export { Textarea };
