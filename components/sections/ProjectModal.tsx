@@ -37,7 +37,7 @@ function ProjectModal({ project, onClose }: ProjectModalProps) {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95, y: 20 }}
                   transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                  className="fixed top-[10%] left-1/2 transform -translate-x-1/2 w-full max-w-4xl max-h-[85vh] bg-gray-900 text-gray-100 rounded-xl shadow-2xl z-[60] overflow-hidden flex flex-col mx-4"
+                  className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl max-h-[90vh] bg-gray-900 text-gray-100 rounded-xl shadow-2xl z-[60] overflow-hidden flex flex-col mx-4 md:top-[10%] md:-translate-y-0"
                 >
                   {/* Imagem do Projeto */}
                   <div className="relative h-48 md:h-64 w-full overflow-hidden bg-gray-800 flex-shrink-0">

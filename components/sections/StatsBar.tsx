@@ -14,9 +14,9 @@ function StatsBar() {
     >
       <Container>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <StatItem label="Projetos" value={4} suffix="+" />
-          <StatItem label="Anos de experiência" value={2} suffix="+" delay={0.05} />
-          <StatItem label="Tecnologias" value={5} suffix="+" delay={0.1} />
+          <StatItem label="Projetos" value={10} suffix="+" />
+          <StatItem label="Anos de experiência" value={5} suffix="+" delay={0.05} />
+          <StatItem label="Tecnologias" value={10} suffix="+" delay={0.1} />
           <StatItem label="Freelancer" value={100} suffix="%" delay={0.15} />
         </div>
       </Container>

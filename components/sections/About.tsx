@@ -97,6 +97,7 @@ function About() {
                         <p className="text-lg text-gray-300 leading-relaxed">
                             <strong className="text-primary-400">Curiosidade extra:</strong>{' '}
                             <KaraokeText
+                                as="span"
                                 className="inline"
                                 wordClassName="transition-all duration-500 ease-out"
                                 text="Além de ser desenvolvedor, no meu tempo livre, gosto de jogar online com meus amigos e praticar FutVôlei – porque o equilíbrio entre tecnologia e movimento é essencial!"

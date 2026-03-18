@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useRef } from 'react';
+import { useMemo, useRef, type RefObject } from 'react';
 import { motion, MotionValue, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
@@ -8,11 +8,20 @@ interface KaraokeTextProps {
   text: string;
   className?: string;
   wordClassName?: string;
+  as?: 'p' | 'span';
 }
 
-function KaraokeText({ text, className, wordClassName }: KaraokeTextProps) {
+function KaraokeText({
+  text,
+  className,
+  wordClassName,
+  as = 'p',
+}: KaraokeTextProps) {
   const shouldReduceMotion = useReducedMotion();
-  const containerRef = useRef<HTMLParagraphElement>(null);
+  const containerRef = useRef<HTMLElement>(null);
+
+  const paragraphRef: RefObject<HTMLParagraphElement> = containerRef as RefObject<HTMLParagraphElement>;
+  const spanRef: RefObject<HTMLSpanElement> = containerRef as RefObject<HTMLSpanElement>;
 
   const words = useMemo(() => {
     return text.split(/\s+/).filter(Boolean);
@@ -24,15 +33,41 @@ function KaraokeText({ text, className, wordClassName }: KaraokeTextProps) {
   });
 
   if (shouldReduceMotion) {
+    if (as === 'span') {
+      return (
+        <span ref={spanRef} className={className}>
+          {text}
+        </span>
+      );
+    }
+
     return (
-      <p ref={containerRef} className={className}>
+      <p ref={paragraphRef} className={className}>
         {text}
       </p>
     );
   }
 
+  if (as === 'span') {
+    return (
+      <span ref={spanRef} className={className}>
+        {words.map((word, index) => (
+          <KaraokeWord
+            key={`${word}-${index}`}
+            scrollYProgress={scrollYProgress}
+            index={index}
+            total={words.length}
+            wordClassName={wordClassName}
+            word={word}
+            withTrailingSpace={index < words.length - 1}
+          />
+        ))}
+      </span>
+    );
+  }
+
   return (
-    <p ref={containerRef} className={className}>
+    <p ref={paragraphRef} className={className}>
       {words.map((word, index) => (
         <KaraokeWord
           key={`${word}-${index}`}

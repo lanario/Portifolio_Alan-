@@ -142,8 +142,8 @@ function ProjectTimelineStep({
         ].join(' ')}
       />
 
-      {/* Coluna esquerda (desktop alternado) */}
-      <div className={['order-2 md:order-1', isEven ? 'md:text-right md:pr-10' : 'md:text-right md:pr-10 md:opacity-0 md:pointer-events-none'].join(' ')}>
+      {/* Desktop: renderiza APENAS um card por step (esquerda OU direita). */}
+      <div className="hidden md:block order-2 md:order-1 md:text-right md:pr-10">
         {isEven ? (
           <ProjectTimelineCard
             project={project}
@@ -151,13 +151,10 @@ function ProjectTimelineStep({
             onOpenModal={onOpenModal}
             align="right"
           />
-        ) : (
-          <div aria-hidden="true" />
-        )}
+        ) : null}
       </div>
 
-      {/* Coluna direita (desktop alternado) */}
-      <div className={['order-3 md:order-2 pl-10 md:pl-0', !isEven ? 'md:pl-10' : 'md:pl-10 md:opacity-0 md:pointer-events-none'].join(' ')}>
+      <div className="hidden md:block order-3 md:order-2 pl-10 md:pl-0">
         {!isEven ? (
           <ProjectTimelineCard
             project={project}
@@ -165,19 +162,17 @@ function ProjectTimelineStep({
             onOpenModal={onOpenModal}
             align="left"
           />
-        ) : (
-          <div aria-hidden="true" />
-        )}
+        ) : null}
+      </div>
 
-        {/* Mobile fallback: sempre renderiza card na direita */}
-        <div className="md:hidden">
-          <ProjectTimelineCard
-            project={project}
-            isActive={isActive}
-            onOpenModal={onOpenModal}
-            align="left"
-          />
-        </div>
+      {/* Mobile: renderiza APENAS um card por step. */}
+      <div className="md:hidden order-2 mt-2">
+        <ProjectTimelineCard
+          project={project}
+          isActive={isActive}
+          onOpenModal={onOpenModal}
+          align="left"
+        />
       </div>
     </motion.div>
   );
@@ -193,10 +188,26 @@ interface ProjectTimelineCardProps {
 }
 
 function ProjectTimelineCard({ project, isActive, onOpenModal, align }: ProjectTimelineCardProps) {
+  function isMobile() {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(max-width: 767px)').matches;
+  }
+
   return (
-    <motion.button
-      type="button"
-      onClick={() => onOpenModal(project)}
+    <motion.div
+      role="button"
+      tabIndex={0}
+      aria-label={`Abrir detalhes do projeto ${project.title}`}
+      onClick={() => {
+        if (isMobile()) return;
+        onOpenModal(project);
+      }}
+      onKeyDown={(event) => {
+        if (isMobile()) return;
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        onOpenModal(project);
+      }}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.2 }}
       className={[
@@ -204,6 +215,7 @@ function ProjectTimelineCard({ project, isActive, onOpenModal, align }: ProjectT
         'border-gray-800 hover:border-primary-500/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400/50',
         isActive ? 'shadow-[0_18px_60px_rgba(0,0,0,0.45)]' : 'shadow-[0_12px_40px_rgba(0,0,0,0.25)]',
         align === 'right' ? 'ml-auto' : '',
+        'cursor-default md:cursor-pointer',
       ].join(' ')}
     >
       {/* Visual / preview */}
@@ -319,7 +331,31 @@ function ProjectTimelineCard({ project, isActive, onOpenModal, align }: ProjectT
             </span>
           ) : null}
         </div>
+
+        {/* Mobile: botão de navegação direta (sem abrir modal) */}
+        <div className="mt-5 md:hidden">
+          {project.liveUrl ? (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-center px-4 py-2.5 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-medium text-sm"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Visitar Projeto
+            </a>
+          ) : (
+            <button
+              type="button"
+              disabled
+              className="block w-full text-center px-4 py-2.5 bg-gray-700 text-gray-300 rounded-lg cursor-not-allowed opacity-80 text-sm"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Visitar Projeto
+            </button>
+          )}
+        </div>
       </div>
-    </motion.button>
+    </motion.div>
   );
 }
