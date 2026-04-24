@@ -1,8 +1,9 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FiGithub, FiLinkedin, FiMail, FiPhone } from 'react-icons/fi';
-import { developerData, socialLinks, navigationSections } from '@/lib/constants';
+import { developerData, siteConfig, socialLinks, navigationSections } from '@/lib/constants';
 import { scrollToSection } from '@/lib/utils/scroll';
 
 function Footer() {
@@ -24,6 +25,15 @@ function Footer() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                     >
+                        <div className="relative mb-4 h-9 w-36">
+                            <Image
+                                src={siteConfig.logoPath}
+                                alt={`${developerData.name} — logo`}
+                                fill
+                                className="object-contain object-left"
+                                sizes="144px"
+                            />
+                        </div>
                         <h3 className="text-white font-bold text-lg mb-4">
                             {developerData.name}
                         </h3>

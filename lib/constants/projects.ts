@@ -5,6 +5,32 @@ import { Project } from '@/types';
  */
 export const projects: Project[] = [
   {
+    id: 'conceito-barbershop',
+    title: 'Conceito Barbershop',
+    description:
+      'Presença digital para barbearia com gestão financeira completa, agendamento sincronizado ao Google Agenda e cobrança recorrente para planos de assinatura.',
+    longDescription:
+      'Solução integrada que combina site portfólio para a barbearia com um painel de gestão financeira pensado para o dia a dia do negócio: fluxo de caixa, receitas, despesas e visão clara da saúde financeira. O módulo de agendamento automatiza reservas e mantém a agenda alinhada ao Google Calendar, reduzindo conflitos e trabalho manual. Para modelos de negócio por assinatura, o fluxo de pagamentos inclui cobrança recorrente, facilitando fidelização e previsibilidade de receita.',
+    technologies: [
+      'Next.js',
+      'TypeScript',
+      'TailwindCSS',
+      'Google Calendar API',
+      'Pagamentos recorrentes',
+      'Dashboard',
+    ],
+    category: 'saas',
+    image: '/images/projects/conceito_barbershop.png',
+    liveUrl: 'https://conceito-barbershop.vercel.app/',
+    learnings: [
+      'Produto que une marketing (site) e operação (financeiro + agenda)',
+      'Integração de calendário externo com regras de agendamento',
+      'Modelos de assinatura e cobrança recorrente no contexto de serviços',
+      'UX para donos de barbearia e equipe no dia a dia',
+    ],
+    featured: true,
+  },
+  {
     id: 'consultorio-dr-pedro',
     title: 'Consultório Dr. Pedro Lucas',
     description: 'Site institucional moderno para consultório odontológico com design profissional e responsivo.',

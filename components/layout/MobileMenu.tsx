@@ -1,10 +1,12 @@
 'use client';
 
 import * as Dialog from '@radix-ui/react-dialog';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiX } from 'react-icons/fi';
 import { Navigation } from './Navigation';
-import { developerData } from '@/lib/constants';
+import { developerData, siteConfig } from '@/lib/constants';
+import { scrollToSection } from '@/lib/utils/scroll';
 
 interface MobileMenuProps {
   open: boolean;
@@ -13,6 +15,11 @@ interface MobileMenuProps {
 
 function MobileMenu({ open, onOpenChange }: MobileMenuProps) {
   function handleLinkClick() {
+    onOpenChange(false);
+  }
+
+  function handleLogoClick() {
+    scrollToSection('hero');
     onOpenChange(false);
   }
 
@@ -42,10 +49,21 @@ function MobileMenu({ open, onOpenChange }: MobileMenuProps) {
                   className="fixed top-0 right-0 bottom-0 w-80 bg-gray-900 shadow-xl z-50 flex flex-col"
                 >
                   {/* Header */}
-                  <div className="flex items-center justify-between p-6 border-b border-gray-800">
-                    <h2 className="text-lg font-bold text-white">
-                      {developerData.name.split(' ')[0]}
-                    </h2>
+                  <div className="flex items-center justify-between gap-3 p-6 border-b border-gray-800">
+                    <button
+                      type="button"
+                      onClick={handleLogoClick}
+                      className="flex min-w-0 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+                      aria-label="Ir para o início"
+                    >
+                      <Image
+                        src={siteConfig.logoPath}
+                        alt={`${developerData.name} — logo`}
+                        width={150}
+                        height={38}
+                        className="h-8 w-auto max-w-[150px] object-contain object-left"
+                      />
+                    </button>
                     <Dialog.Close asChild>
                       <button
                         className="p-2 rounded-lg hover:bg-gray-800 transition-colors"

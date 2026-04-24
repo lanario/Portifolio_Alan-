@@ -4,8 +4,6 @@ import { About } from '@/components/sections/About';
 import { Technologies } from '@/components/sections/Technologies';
 import { Projects } from '@/components/sections/Projects';
 import { StatsBar } from '@/components/sections/StatsBar';
-import { Education } from '@/components/sections/Education';
-import { Experience } from '@/components/sections/Experience';
 import { CTA } from '@/components/sections/CTA';
 import { Contact } from '@/components/sections/Contact';
 
@@ -18,20 +16,14 @@ function HomePage() {
       {/* Sobre Mim */}
       <About />
 
-      {/* Tecnologias */}
-      <Technologies />
-
       {/* Projetos */}
       <Projects />
 
+      {/* Tecnologias */}
+      <Technologies />
+
       {/* Métricas */}
       <StatsBar />
-
-      {/* Experiência Profissional */}
-      <Experience />
-
-      {/* Educação */}
-      <Education />
 
       {/* CTA */}
       <CTA />

@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
-import { FiCode, FiTarget, FiHeart, FiZap } from 'react-icons/fi';
+import { FiTarget, FiHeart, FiZap, FiUsers } from 'react-icons/fi';
 import { developerData } from '@/lib/constants';
 import { Container } from '@/components/ui/Container';
 import { AboutCard } from './AboutCard';
@@ -76,7 +76,7 @@ function About() {
                         Sobre Mim
                     </h2>
                     <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                        Conheça um pouco mais sobre minha trajetória e paixões
+                        Como trabalho e o que posso construir para o seu negócio crescer com presença digital de verdade
                     </p>
                 </div>
 
@@ -87,22 +87,13 @@ function About() {
                         <KaraokeText
                             className="text-lg text-gray-300 mb-6 leading-relaxed"
                             wordClassName="transition-all duration-500 ease-out"
-                            text="Desenvolvedor autodidata apaixonado por tecnologia e verdadeiro esponja de conhecimento. Minha experiência envolve automação de tarefas, criptografia de dados, web scraping e desenvolvimento de software, sempre focado em melhorar o conhecimento tecnológico e otimizar soluções para desafios diários."
+                            text="Sou desenvolvedor e trabalho criando sites, sistemas web e tudo o que sua empresa precisa para se posicionar melhor no digital — com identidade profissional, navegação clara e ferramentas que organizam o dia a dia. Da vitrine no navegador ao painel por trás das telas, o foco é fazer seu negócio parecer único e confiável para quem chega até você."
                         />
                         <KaraokeText
                             className="text-lg text-gray-300 mb-6 leading-relaxed"
                             wordClassName="transition-all duration-500 ease-out"
-                            text="Estou procurando novas oportunidades na área e pronto para enfrentar desafios inovadores."
+                            text="Meu processo é direto: entendo seu contexto, alinhamos prioridades e prazos, e eu entrego soluções estáveis, seguras e fáceis de evoluir. Você acompanha o andamento, tira dúvidas quando quiser e recebe um produto pensado para converter visitantes em clientes e simplificar a operação — sem jargão desnecessário."
                         />
-                        <p className="text-lg text-gray-300 leading-relaxed">
-                            <strong className="text-primary-400">Curiosidade extra:</strong>{' '}
-                            <KaraokeText
-                                as="span"
-                                className="inline"
-                                wordClassName="transition-all duration-500 ease-out"
-                                text="Além de ser desenvolvedor, no meu tempo livre, gosto de jogar online com meus amigos e praticar FutVôlei – porque o equilíbrio entre tecnologia e movimento é essencial!"
-                            />
-                        </p>
                     </div>
 
                     {/* Imagem de Perfil */}
@@ -127,22 +118,22 @@ function About() {
                 <div ref={cardsRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <AboutCard
                         title="Paixão"
-                        description="Tecnologia e inovação são minha motivação diária"
+                        description="Ver seu negócio ganhar presença digital forte e uma imagem à altura do serviço que você presta"
                         icon={<FiHeart className="w-8 h-8" />}
                     />
                     <AboutCard
                         title="Foco"
-                        description="Soluções otimizadas e código de qualidade"
+                        description="Sites e sistemas bem estruturados, com performance e clareza para quem usa"
                         icon={<FiTarget className="w-8 h-8" />}
                     />
                     <AboutCard
-                        title="Aprendizado"
-                        description="Sempre em busca de novos conhecimentos"
-                        icon={<FiCode className="w-8 h-8" />}
+                        title="Parceria"
+                        description="Comunicação transparente do briefing à entrega — você sabe o que está sendo feito e por quê"
+                        icon={<FiUsers className="w-8 h-8" />}
                     />
                     <AboutCard
                         title="Performance"
-                        description="Aplicações rápidas e eficientes"
+                        description="Experiência rápida no celular e no desktop, pronta para crescer junto com a demanda"
                         icon={<FiZap className="w-8 h-8" />}
                     />
                 </div>
