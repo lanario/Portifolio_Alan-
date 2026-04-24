@@ -205,7 +205,7 @@ function Hero() {
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-3.5 py-1.5 backdrop-blur-xl">
             <span className="inline-block h-[7px] w-[7px] rounded-full bg-blue-500" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-blue-300/90">
-              Disponível para projetos
+              Sites e sistemas sob medida para o seu negócio
             </span>
           </div>
 

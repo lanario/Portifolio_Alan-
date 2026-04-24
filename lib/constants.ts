@@ -5,7 +5,7 @@ export const developerData = {
     name: 'Alan Barros',
     title: 'Desenvolvedor FullStack',
     email: 'alanbarros.dev15@gmail.com',
-    phone: '+55 (21) 96641-8522',
+    phone: '+55 21 99291-3627',
     location: 'Nova Iguaçu, RJ -Brasil',
     github: 'https://github.com/lanario',
     linkedin: 'https://linkedin.com/in/alan-barrosdev15',
@@ -20,8 +20,8 @@ export const socialLinks = {
     linkedin: 'https://www.linkedin.com/in/alan-barrosdev15/',
     instagram: 'https://instagram.com/alan.barr0s',
     email: `mailto:${developerData.email}?subject=Contato%20do%20Portfólio`,
-    whatsapp: `https://wa.me/5521966418522`,
-    phone: `tel:${developerData.phone.replace(/\s/g, '')}`,
+    whatsapp: `https://wa.me/${developerData.phone.replace(/\D/g, '')}`,
+    phone: `tel:+${developerData.phone.replace(/\D/g, '')}`,
 } as const;
 
 /**
@@ -30,10 +30,8 @@ export const socialLinks = {
 export const navigationSections = [
     { id: 'hero', label: 'Início' },
     { id: 'sobre', label: 'Sobre' },
-    { id: 'tecnologias', label: 'Tecnologias' },
     { id: 'projetos', label: 'Projetos' },
-    { id: 'experiencia', label: 'Experiência' },
-    { id: 'educacao', label: 'Educação' },
+    { id: 'tecnologias', label: 'Tecnologias' },
     { id: 'contato', label: 'Contato' },
 ] as const;
 
@@ -42,7 +40,8 @@ export const navigationSections = [
  */
 export const siteConfig = {
     title: `${developerData.name} - ${developerData.title}`,
-    description: 'Portfólio de Alan da Silva de Barros - Desenvolvedor FullStack especializado em React, Next.js, TypeScript e Python',
+    description:
+        'Alan Barros — desenvolvimento de sites, sistemas e integrações sob medida para empresas que querem presença digital profissional, processos mais claros e uma marca mais forte.',
     url: 'https://alanbarros.dev', // Atualizar quando tiver domínio
     ogImage: '/og-image.jpg',
 } as const;

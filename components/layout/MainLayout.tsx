@@ -5,6 +5,7 @@ import { Header } from './Header';
 import { Footer } from './Footer';
 import { ScrollProgress } from '@/components/ui/ScrollProgress';
 import { ScrollToTop } from '@/components/ui/ScrollToTop';
+import { WhatsAppFloat } from '@/components/ui/WhatsAppFloat';
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -24,6 +25,7 @@ function MainLayout({ children }: MainLayoutProps) {
         {children}
       </main>
       <Footer />
+      <WhatsAppFloat />
       <ScrollToTop />
     </div>
   );
