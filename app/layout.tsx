@@ -50,6 +50,11 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  icons: {
+    icon: [{ url: siteConfig.logoPath, type: 'image/png', sizes: 'any' }],
+    shortcut: siteConfig.logoPath,
+    apple: [{ url: siteConfig.logoPath, type: 'image/png' }],
+  },
 };
 
 function RootLayout({

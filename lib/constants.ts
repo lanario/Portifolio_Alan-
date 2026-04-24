@@ -44,4 +44,6 @@ export const siteConfig = {
         'Alan Barros — desenvolvimento de sites, sistemas e integrações sob medida para empresas que querem presença digital profissional, processos mais claros e uma marca mais forte.',
     url: 'https://alanbarros.dev', // Atualizar quando tiver domínio
     ogImage: '/og-image.jpg',
+    /** Logo principal (arquivo em /public/images/) */
+    logoPath: '/images/logo_alan_1.png',
 } as const;
