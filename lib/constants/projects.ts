@@ -93,7 +93,7 @@ export const projects: Project[] = [
     technologies: ['Next.js', 'TypeScript', 'React', 'PostgreSQL', 'TailwindCSS', 'Dashboard', 'Charts'],
     category: 'saas',
     image: '/images/projects/Finance.png',
-    liveUrl: 'http://69.62.87.91:3001/',
+    liveUrl: 'https://infinity-lines.vercel.app/',
     learnings: [
       'Arquitetura de aplicações financeiras',
       'Desenvolvimento de dashboards interativos',
